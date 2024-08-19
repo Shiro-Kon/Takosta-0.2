@@ -1,0 +1,62 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+
+@font-face {
+  font-family: 'Cocomat Pro';
+  src: url('../public/font/CocomatPro-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../public/font/Montserrat-Light.ttf') format('truetype');
+  font-weight: 300; 
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PushkinScriptHigh';
+  src: url('../public/font/PushkinScriptHigh.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Forum';
+  src: url('../public/font/Forum_2.otf') format('opentype');
+}
+
+body {
+  margin: 0 auto;
+  padding: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+}
+h1, h2, h3 {
+  font-family: 'Cocomat Pro', sans-serif; 
+}
+.m-\[56px\]{
+  margin: 0;
+}
+
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  scrollbar-width: none;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+
+
