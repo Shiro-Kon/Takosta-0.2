@@ -1,6 +1,4 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+
 
 
 
@@ -52,11 +50,16 @@ h1, h2, h3 {
 html, body {
   margin: 0;
   padding: 0;
-  scrollbar-width: none;
-  overflow-x: hidden;
+  /* scrollbar-width: none;
+  overflow-x: hidden; */
   width: 100%;
   position: relative;
 }
 
 
 
+
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';

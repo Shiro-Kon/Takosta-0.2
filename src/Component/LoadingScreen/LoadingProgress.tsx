@@ -1,52 +1,42 @@
-// import React, { useEffect, useState } from 'react';
-
-// interface LoadingScreenProps {
-//   minimumLoadingTime?: number;
-// }
-
-// const LoadingScreen: React.FC<LoadingScreenProps> = ({ minimumLoadingTime = 1000 }) => {
-//   const [isLoading, setIsLoading] = useState(true);
-
-//   useEffect(() => {
-//     const timer = setTimeout(() => {
-//       setIsLoading(false);
-//     }, minimumLoadingTime);
-
-//     return () => clearTimeout(timer);
-//   }, [minimumLoadingTime]);
-
-//   if (!isLoading) return null;
-
-//   return (
-//     <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white">
-//       <div className="relative">
-//         <div className="w-24 h-24 border-4 border-olive-drab rounded-full"></div>
-//         <div className="absolute top-0 left-0 w-24 h-24 border-4 border-olive-green rounded-full animate-ping"></div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default LoadingScreen;
-
 import React from 'react';
+import { motion } from 'framer-motion';
 
-const LoadingProgress: React.FC = () => (
-  <div className="flex flex-col items-center justify-center min-h-screen bg-gray-200">
-    <div className="relative w-64 h-2 bg-gray-300 rounded-full overflow-hidden">
-      <div className="absolute top-0 left-0 h-full bg-olive-green animate-progress"></div>
+const LoadingScreen: React.FC = () => {
+  return (
+    <div className="fixed inset-0 bg-sage-green/100 z-50 flex flex-col items-center justify-center">
+      <motion.div className="relative flex space-x-4 mb-6">
+        {[...Array(3)].map((_, index) => (
+          <motion.div
+            key={index}
+            className="w-8 h-8 bg-white rounded-full"
+            animate={{
+              scale: [1, 1.4, 1],
+              opacity: [0.8, 1, 0.8],
+            }}
+            transition={{
+              duration: 1,
+              repeat: Infinity,
+              repeatType: 'mirror',
+              ease: 'easeInOut',
+              delay: index * 0.3,
+            }}
+          />
+        ))}
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 1,
+          ease: 'easeInOut',
+          delay: 0.5,
+        }}
+        className="text-white text-lg sm:text-xl lg:text-2xl text-center px-4"
+      >
+        Завантажуємо красу для вас...
+      </motion.div>
     </div>
-    <span className="mt-4 text-lg text-gray-700">Loading...</span>
-    <style >{`
-      @keyframes progress {
-        0% { width: 0; }
-        100% { width: 100%; }
-      }
-      .animate-progress {
-        animation: progress 2s infinite;
-      }
-    `}</style>
-  </div>
-);
+  );
+};
 
-export default LoadingProgress;
+export default LoadingScreen;

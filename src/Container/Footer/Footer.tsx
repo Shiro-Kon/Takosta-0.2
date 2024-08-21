@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="py-8 border-t-2 border-sage-green">
+    <footer className="mt-auto py-8 border-t-2 border-sage-green">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {footerSections.map((section, index) => (
@@ -14,19 +14,19 @@ const Footer: React.FC = () => {
                 section.details.map((item, idx) => (
                   <div key={idx} className="mb-1 text-sage-green">
                     {item.type === 'tel' ? (
-                      <a href={`tel:${item.contact}`} className=" sm:text-sm md:text-lg">
+                      <a href={`tel:${item.contact}`} className="sm:text-sm md:text-lg">
                         {item.contact}
                       </a>
                     ) : item.type === 'email' ? (
-                      <a href={`mailto:${item.contact}`} className=" sm:text-sm md:text-lg">
+                      <a href={`mailto:${item.contact}`} className="sm:text-sm md:text-lg">
                         {item.contact}
                       </a>
                     ) : item.type === 'link' ? (
-                      <a href={item.contact} className=" sm:text-sm md:text-lg">
+                      <a href={item.contact} className="sm:text-sm md:text-lg">
                         {item.contact}
                       </a>
                     ) : (
-                      <span className=" sm:text-sm md:text-lg">{item.contact}</span>
+                      <span className="sm:text-sm md:text-lg">{item.contact}</span>
                     )}
                   </div>
                 ))
@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
           ))}
         </div>
         <div className="mt-8 text-center">
-          <div className="text-sage-green  sm:text-sm md:text-lg cursor-default ">
+          <div className="text-sage-green sm:text-sm md:text-lg cursor-default">
             TAKOSTA professional cosmetics
           </div>
         </div>
